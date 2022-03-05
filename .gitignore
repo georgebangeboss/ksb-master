@@ -327,3 +327,4 @@ modules.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/django,jetbrains+all,visualstudiocode,python
 williamotieno.json
+.vscode
