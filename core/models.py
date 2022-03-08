@@ -7,7 +7,7 @@ from django.utils import timezone
 from django import template
 from .garage import logo_base64_string
 
-from authentication.models import Client, SalesPerson, Engineer, Manager
+#from authentication.models import Client, SalesPerson, Engineer, Manager
 
 register = template.Library()
 
