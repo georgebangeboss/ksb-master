@@ -112,17 +112,17 @@ class User(AbstractBaseUser):
         return self.admin
 
 
-class Client(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+# class Client(models.Model):
+#     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
 
-class Engineer(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+# class Engineer(models.Model):
+#     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
 
-class SalesPerson(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+# class SalesPerson(models.Model):
+#     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
 
-class Manager(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+# class Manager(models.Model):
+#     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
