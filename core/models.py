@@ -1,9 +1,11 @@
 import base64
+from distutils.command.upload import upload
 
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
 from django import template
+from .garage import logo_base64_string
 
 from authentication.models import Client, SalesPerson, Engineer, Manager
 
@@ -40,8 +42,7 @@ class DailyWorkSheet(models.Model):
         blank=False,
     )
     work_sheet_images = models.ImageField(
-        null=True,
-        blank=True,
+        null=True, blank=True, upload_to="work_sheet/"
     )
 
     class Meta:
@@ -63,3 +64,6 @@ class DailyWorkSheet(models.Model):
 
     def get_distance(self):
         return self.end_mileage - self.start_mileage
+
+    def get_logo(self):
+        return logo_base64_string

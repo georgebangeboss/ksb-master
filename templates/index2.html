@@ -43,7 +43,7 @@
 
                 <div style="align-items: flex-end;display: flex;flex-direction: column;padding: 12px;">
                     <div class="serialnumberspan">
-                        <span class="serial-number-span">S/N </span><span class="serial-number"> {{obj.id}} </span>
+                        <span class="serial-number-span">S/N </span><span class="serial-number"> 0392 </span>
                     </div>
                 </div>
 
@@ -183,75 +183,62 @@
 
             </div>
         </div>
-        <div class="forth-section">
-            <div class='reports-column'>
-                <div class='report-column'>
-                    <div class="coloured-header">
-                        Report
-                    </div>
-                    <div class="lorem-text" style="height: 80px;">
-                        {{obj.report}}
-                    </div>
-                </div>
-                <div class='report-column'>
-                    <div class="coloured-header">
-                        Recommendations
-                    </div>
-                    <div class="lorem-text">
-                        {{obj.recommendation}}
-                    </div>
-                </div>
-                <div class='report-column'>
-                    <div class="coloured-header">
-                        Action Work Required
-                    </div>
-                    <div class="lorem-text">
-                        {{obj.action_work_required}}
-                    </div>
-                </div>
 
-
-
-
-
-
-
-
-            </div>
-
-        </div>
-        <div class="signature-row ">
+        <div>
             <div class='report-column'>
-                <div class="coloured-header ">
-                    Signatures
+                <div class="coloured-header">
+                    Report
                 </div>
-                <div name="signature-columns " style="display: flex;justify-content: space-around; ">
-
-
-                    <div style="padding: 2px;flex-direction: column;display: flex;align-items: center; ">
-                        <img class="signature " src="data:image/png;base64,{{obj.engineer_signature}} ">
-                        <div style="font-weight: 500; white-space: nowrap; ">
-                            KSB Engineer
-                        </div>
-                        <div style="font-weight: bold; white-space: nowrap; ">
-                            {{obj.engineer}}
-                        </div>
-                    </div>
-                    <div style="padding: 2px;flex-direction: column;display: flex;align-items: center; ">
-                        <img class="signature " src="data:image/png;base64,{{obj.client_signature}} ">
-                        <div style="font-weight: 500; white-space: nowrap; ">
-                            Client Representative
-                        </div>
-                        <div style="font-weight: bold; white-space: nowrap; ">
-                            {{obj.client}}
-                        </div>
-                    </div>
-
+                <div class="lorem-text" style="height: 80px;">
+                    {{obj.report}}
                 </div>
+            </div>
+            <div class='report-column'>
+                <div class="coloured-header">
+                    Recommendations
+                </div>
+                <div class="lorem-text" style="height: 80px;">
+                    {{obj.recommendation}}
+                </div>
+            </div>
+            <div class='report-column'>
+                <div class="coloured-header">
+                    Action Work Required
+                </div>
+                <div class="lorem-text" style="height: 80px;">
+                    {{obj.action_work_required}}
+                </div>
+            </div>
+            <div class="coloured-header ">
+                Signatures
+            </div>
+            <div style="display: flex;justify-content: space-around; ">
+
+
+                <div style="padding: 2px;flex-direction: column;display: flex;align-items: center; ">
+                    <img class="signature " src="data:image/png;base64,{{obj.engineer_signature}} ">
+                    <div style="font-weight: 500; white-space: nowrap; ">
+                        KSB Engineer
+                    </div>
+                    <div style="font-weight: bold; white-space: nowrap; ">
+                        {{obj.engineer}}
+                    </div>
+                </div>
+                <div style="padding: 2px;flex-direction: column;display: flex;align-items: center; ">
+                    <img class="signature " src="data:image/png;base64,{{obj.client_signature}} ">
+                    <div style="font-weight: 500; white-space: nowrap; ">
+                        Client Representative
+                    </div>
+                    <div style="font-weight: bold; white-space: nowrap; ">
+                        {{obj.client}}
+                    </div>
+                </div>
+
             </div>
 
         </div>
-    </div>
+
+
     </div>
 </body>
 

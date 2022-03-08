@@ -23,7 +23,7 @@ class UserManager(BaseUserManager):
             raise ValueError("User must have a password")
         user_obj = self.model(
             email=self.normalize_email(email),
-            employee_number=self.employee_number,
+            employee_number=employee_number,
         )
         user_obj.set_password(password)
         user_obj.staff = is_staff
@@ -72,7 +72,7 @@ class User(AbstractBaseUser):
     confirmed_on = models.DateTimeField(auto_now_add=True)
 
     USERNAME_FIELD = "email"
-    # objects = UserManager()
+    objects = UserManager()
 
     # By default USERNAME_FIELD and password are required fields ,to add your own use REQUIRED_FIELDS
     REQUIRED_FIELDS = [
@@ -80,13 +80,23 @@ class User(AbstractBaseUser):
     ]
 
     def __str__(self):
-        pass
+        return f"{self.first_name} {self.last_name}"
 
     def get_full_name(self):
         return f"{self.first_name} {self.last_name}"
 
     def get_short_name(self):
         return f"{self.first_name}"
+
+    def has_perm(self, perm, obj=None):
+        "Does the user have a specific permission?"
+        # Simplest possible answer: Yes, always
+        return True
+
+    def has_module_perms(self, app_label):
+        "Does the user have permissions to view the app `app_label`?"
+        # Simplest possible answer: Yes, always
+        return True
 
     @property
     def is_staff(self):
