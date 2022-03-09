@@ -40,7 +40,6 @@
                 <img class="logo" src="data:image/png;base64,{{obj.get_logo}}">
             </div>
             <div class="job-number-section">
-
                 <div style="align-items: flex-end;display: flex;flex-direction: column;padding: 12px;">
                     <div class="serialnumberspan">
                         <span class="serial-number-span">S/N </span><span class="serial-number"> {{obj.id}} </span>
@@ -54,22 +53,20 @@
                     <div class="job-number-date-titles">
                         <div class="job-no-title-txt">
                             Job Number
-                        </div class="job-no-title-txt">
+                        </div>
                         <div class="job-no-title-txt">
                             Date
-                        </div class="job-no-title-txt">
+                        </div>
                     </div>
                     <div class="job-number-date-values">
                         <div class="job-no-val-txt">
                             {{obj.job_number}}
-                        </div class="job-no-val-txt">
+                        </div>
                         <div class="job-no-val-txt">
                             {{obj.date|date:"M d, Y"}}
-                        </div class="job-no-val-txt">
+                        </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
         <div class="second-row">
@@ -129,7 +126,7 @@
                     Nyamira, Keroka
                 </div>
             </div>
-        </div class="second-row">
+        </div>
         <div class="third-row">
             <div class="start-titles">
                 <div class="coloured-header">
@@ -210,13 +207,6 @@
                     </div>
                 </div>
 
-
-
-
-
-
-
-
             </div>
 
         </div>
@@ -226,8 +216,6 @@
                     Signatures
                 </div>
                 <div name="signature-columns " style="display: flex;justify-content: space-around; ">
-
-
                     <div style="padding: 2px;flex-direction: column;display: flex;align-items: center; ">
                         <img class="signature " src="data:image/png;base64,{{obj.engineer_signature}} ">
                         <div style="font-weight: 500; white-space: nowrap; ">
@@ -246,12 +234,10 @@
                             {{obj.client}}
                         </div>
                     </div>
-
                 </div>
             </div>
 
         </div>
-    </div>
     </div>
 </body>
 
