@@ -7,6 +7,7 @@ from django.forms import ClearableFileInput
 from django.utils import timezone
 from django import template
 from .garage import logo_base64_string
+import base64
 
 # from authentication.models import Client, SalesPerson, Engineer, Manager
 
@@ -62,7 +63,11 @@ class DailyWorkSheet(models.Model):
 
     def get_logo(self):
         return logo_base64_string
-
+    
+    def get_worksheet_image(self):
+        with open(self.work_sheet_images.path,"rb") as image_file:
+            encode_string=base64.b64decode(image_file.read())
+        return encode_string;
     class Meta:
         verbose_name = "Daily Work Sheet"
         verbose_name_plural = "Daily Work Sheets"
