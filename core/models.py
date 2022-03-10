@@ -65,7 +65,7 @@ class DailyWorkSheet(models.Model):
         return logo_base64_string
     
     def get_worksheet_image(self):
-        with open(self.work_sheet_images.path,"rb") as image_file:
+        with open(self.work_sheet_images.url,"rb") as image_file:
             encode_string=base64.b64decode(image_file.read())
         return encode_string;
     class Meta:
