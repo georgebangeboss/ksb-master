@@ -62,7 +62,7 @@ class DailyWorkSheetCreateAPIView(generics.CreateAPIView):
                 "New WorkSheet",
                 "A new work sheet has been created now",
                 settings.EMAIL_HOST_USER,
-                ["tonnymaishaogeto@ksb.com"],
+                ["tonnymaishaogeto@gmail.com"],
                 ["frankogeto@gmail.com"],
             )
             pdf_mime.add_header("Content-Disposition", "attachment", filename=file_name)

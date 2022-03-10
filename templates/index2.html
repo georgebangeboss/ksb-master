@@ -207,7 +207,7 @@
     <div class="coloured-header ">
         Photos
     </div>
-     <img style=" width: 400px; height: auto; padding-top: 10px ;" src="data:image/png;base64,{{obj.get_worksheet_image}}">  
+     <img style=" width: 400px; height: auto; padding-top: 10px ;" src="{{obj.work_sheet_images.url}}">  
 </div>
 <div class='report-column'>
     <div class="coloured-header ">
@@ -217,7 +217,7 @@
             <div class="signature-column">
                 <img class="signature " src="data:image/png;base64,{{obj.engineer_signature}} ">
                 
-                <div>
+                <div >
                     <div style="font-weight: 500; white-space: nowrap; ">
                         KSB Engineer
                     </div>
