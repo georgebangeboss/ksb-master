@@ -10,24 +10,70 @@
 
 .whole-page {
     background-color: #ffffff;
-    padding: 15px;
     display: flex;
     flex-direction: column;
 }
 
 .first-row {
-    background-color: #FBE8E8;
+    background-color: #d1dcef;
     display: flex;
     flex-direction: row;
-    margin-bottom: 3px;
-    padding: 6px;
+    padding: 9px 26px 10px 26px;
     justify-content: space-between;
+    margin-bottom: 9px;
+    
+    flex-grow:0;
 }
 
 .company-details-column {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
+.image-section{
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+
+}
+.daily-worksheet-title {
+    color: #0000FF;
+    font-size: 25px;
+    padding: 10px 10px 10px 10px;
+}
+.job-number-section{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    justify-content: space-between; 
+}
+.serialnumberspan {
+    white-space: nowrap;
+}
+.serial-number-span {
+    font-size: 15px;
+}
+
+.serial-number {
+    font-size: 20px;
+    color: #F40E0E;
+}
+.company-title-large{
+
+}
+.ksb-name-span-large{
+    font-family: Roboto, Arial;
+    color: #4B5770;
+    font-weight: 900;
+    font-size: 25px;
+}
+.supreme-span-large{
+    font-family: Roboto, Arial;
+    font-size: 25px;
+    font-weight: 900;
+}
+
 
 p {
     padding: 2px;
@@ -38,6 +84,7 @@ p {
 
 .company-title {
     padding: 6px;
+    text-align: right;
 }
 
 .ksb-name-span {
@@ -64,28 +111,12 @@ span {
 }
 
 .photo {
-    width: 90px;
-    object-fit: contain;
+    width: 250px;
 }
 
-.job-number-section {
-    display: flex;
-    flex-direction: column;
-}
 
-.daily-worksheet-title {
-    color: #0000FF;
-    font-size: 24px;
-}
 
-.serial-number-span {
-    font-size: 15px;
-}
 
-.serial-number {
-    font-size: 20px;
-    color: #F40E0E;
-}
 
 .job-number-date-columns {
     display: flex;
@@ -108,21 +139,27 @@ span {
     align-items: flex-start;
     padding: 10px;
 }
+.signature-row{
+    display: flex;
+    flex-direction: row;
+    padding: 10px 1px 10px 1px;
+    justify-content: space-around;
+}  
 
 .third-row {
     display: flex;
     flex-direction: row;
-    margin-bottom: 2px;
+    padding: 9px 1px 10px 1px;
     justify-content: space-between;
-    padding-left: 3px;
+    flex-grow:0;
 }
 
 .second-row {
     display: flex;
     flex-direction: row;
-    padding-left: 3px;
-    margin-bottom: 2px;
+    padding: 9px 1px 10px 1px;
     justify-content: space-between;
+    flex-grow:0;
 }
 
 .coloured-header {
@@ -140,36 +177,59 @@ span {
     margin: 2px;
 }
 
-.start-titles,
-.end-titles,
-.difference-titles,
+
+
 .client-details-values,
-.engineer-details-values,
-.engineer-details-titles,
-.client-details-titles {
-    display: flex;
+.engineer-details-values{
+    display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
-    flex: 1;
+    flex: 3;
+    
+    padding: 2.5px 2.5px 2.5px 2.5px;
+    justify-content: space-between;
+}
+
+
+.engineer-details-titles,
+.client-details-titles {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 2;
+    
+    padding: 2.5px 2.5px 2.5px 2.5px;
+    justify-content: space-between;
 }
 
 .difference-values,
 .end-values,
 .start-values {
     font-size: 13px;
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
     flex: 1;
+    
+    padding: 2.5px 2.5px 2.5px 2.5px;
+    justify-content: space-between;
+}
+.start-titles,
+.end-titles,
+.difference-titles{
+font-size: 13px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 2;
+    
+    padding: 2.5px 2.5px 2.5px 2.5px;
+    justify-content: space-between;
 }
 
-.reports-column {
-    display: flex;
-    flex-direction: column;
-}
+
 
 .report-column {
-    margin-bottom: 15px;
     display: flex;
     flex-direction: column;
 }
@@ -191,30 +251,24 @@ span {
 }
 
 .description {
-    padding: 2px;
+    padding: 1px;
+    text-align: right;
 }
 
 body {
     font: normal 14px Roboto Arial;
 }
 
-.serialnumberspan {
-    white-space: nowrap;
-}
 
-.job-no-title-txt,
-.job-no-val-txt {
-    padding: 8px;
-    white-space: nowrap;
-}
-
-.forth-section {
-    display: flex;
-    flex-direction: column;
-    padding-left: 3px;
-    margin-bottom: 4px;
-}
 
 .lorem-text {
-    height: 80px;
+    height: 95px;
+    padding: 2.5px 5px 2.5px 5px;
+}
+.signature-column{
+    padding: 2px;
+    flex-direction: column;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
 }

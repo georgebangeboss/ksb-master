@@ -3,11 +3,12 @@ from distutils.command.upload import upload
 
 from django.conf import settings
 from django.db import models
+from django.forms import ClearableFileInput
 from django.utils import timezone
 from django import template
 from .garage import logo_base64_string
 
-#from authentication.models import Client, SalesPerson, Engineer, Manager
+# from authentication.models import Client, SalesPerson, Engineer, Manager
 
 register = template.Library()
 
@@ -41,13 +42,7 @@ class DailyWorkSheet(models.Model):
         null=False,
         blank=False,
     )
-    work_sheet_images = models.ImageField(
-        null=True, blank=True, upload_to="work_sheet/"
-    )
-
-    class Meta:
-        verbose_name = "Daily Work Sheet"
-        verbose_name_plural = "Daily Work Sheets"
+    work_sheet_images = models.FileField(null=True, blank=True, upload_to="work_sheet/")
 
     @register.filter(name="binary_to_image")
     def decode_signature(self, signature_str: str):
@@ -67,3 +62,8 @@ class DailyWorkSheet(models.Model):
 
     def get_logo(self):
         return logo_base64_string
+
+    class Meta:
+        verbose_name = "Daily Work Sheet"
+        verbose_name_plural = "Daily Work Sheets"
+        

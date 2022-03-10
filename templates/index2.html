@@ -2,243 +2,241 @@
 <html>
 
 <head>
-
-
+    <link rel="stylesheet" href="../core/static/core/mystyles.css">
 </head>
 
 <body>
     <div class="whole-page">
         <div class="first-row">
-            <div class="company-details-column">
-
-                <div class="company-title">
-                    <span class="ksb-name-span">KSB </span><span class="supreme-span">Supreme </span>
-                    <span class="ksb-name-span">Serv </span>
+            
+            <div class="job-number-section">
+                <div class="serialnumberspan">
+                    <span class="serial-number-span">S/No </span><span class="serial-number"> {{obj.id}} </span>
                 </div>
-                <div>
+               
+                <div class="company-title-large">
+                    <span class="ksb-name-span-large">KSB </span><span class="supreme-span-large">Supreme </span>
+                    <span class="ksb-name-span-large">Serv </span>
+                </div>
+            </div>
+            
+            <div class="image-section">
+                <img class="logo " src="data:image/png;base64,{{obj.get_logo}} ">
+            </div>
+            <div class="company-details-column">
+                <div class="company-title ">
+                    <span class="ksb-name-span ">KSB </span><span class="supreme-span ">Supreme </span>
+                    <span class="ksb-name-span ">Serv </span>
+                </div>
+                <div class="description ">
                     Prabhaki Industrial Park
                 </div>
-                <div class="description">
+                <div class="description ">
                     Units A2 & B3
                 </div>
-                <div class="description">
+                <div class="description ">
                     Off Babadogo Road, Ruaraka
                 </div>
-                <div class="description">
+                <div class="description ">
                     P.O.Box 2286-00621
                 </div>
-                <div class="description">
+                <div class="description ">
                     Village Market, Nairobi, Kenya
                 </div>
-                <div class="description">
+                <div class="description ">
                     Tel (02) 234 9308
                 </div>
-
-
-            </div>
-            <div style="display: flex;justify-content: center;padding-top: 15px;">
-                <img class="logo" src="data:image/png;base64,{{obj.get_logo}}">
-            </div>
-            <div class="job-number-section">
-                <div style="align-items: flex-end;display: flex;flex-direction: column;padding: 12px;">
-                    <div class="serialnumberspan">
-                        <span class="serial-number-span">S/N </span><span class="serial-number"> {{obj.id}} </span>
-                    </div>
-                </div>
-
-                <div class="daily-worksheet-title">
+                <div class="daily-worksheet-title ">
                     DAILY WORKSHEET
                 </div>
-                <div class="job-number-date-columns">
-                    <div class="job-number-date-titles">
-                        <div class="job-no-title-txt">
-                            Job Number
-                        </div>
-                        <div class="job-no-title-txt">
-                            Date
-                        </div>
-                    </div>
-                    <div class="job-number-date-values">
-                        <div class="job-no-val-txt">
-                            {{obj.job_number}}
-                        </div>
-                        <div class="job-no-val-txt">
-                            {{obj.date|date:"M d, Y"}}
-                        </div>
-                    </div>
-                </div>
+
+
             </div>
+
+
         </div>
-        <div class="second-row">
-            <div class="client-details-titles">
-                <div class="coloured-header">
+        <div class="second-row ">
+            <div class="client-details-titles ">
+                <div class="coloured-header ">
                     Client
                 </div>
-                <div class="coloured-header">
-                    Client Contact
-                </div>
-                <div class="coloured-header">
+                <div class="coloured-header ">
                     Site Location
                 </div>
-                <div class="coloured-header">
-                    Vehicle Number Plate
+                <div class="coloured-header ">
+                    Places Visited
+                </div>
+                <div class="coloured-header ">
+                    Vehicle Reg.
                 </div>
             </div>
-            <div class="client-details-values">
-                <div class="autofilled-vals">
+            <div class="client-details-values ">
+                <div class="autofilled-vals ">
                     {{obj.client_org}}
                 </div>
-                <div class="autofilled-vals">
-                    0712345678
-                </div>
-                <div class="autofilled-vals">
+                <div class="autofilled-vals ">
                     {{obj.location}}
                 </div>
-                <div class="autofilled-vals">
+                <div class="autofilled-vals ">
+                    Nyamira, Keroka
+                </div>
+                <div class="autofilled-vals ">
                     {{obj.vehicle_reg}}
                 </div>
             </div>
-            <div class="engineer-details-titles">
-                <div class="coloured-header">
+            <div class="engineer-details-titles ">
+                <div class="coloured-header ">
+                    Date
+                </div>
+                <div class="coloured-header ">
+                    Job Number
+                </div>
+                <div class="coloured-header ">
                     Engineer
                 </div>
-                <div class="coloured-header">
+                <div class="coloured-header ">
                     Department
                 </div>
-                <div class="coloured-header">
-                    Engineer&#39s Contact
-                </div>
-                <div class="coloured-header">
-                    Other Places Visited
-                </div>
+                
+                
             </div>
-            <div class="engineer-details-values">
-                <div class="autofilled-vals">
+            <div class="engineer-details-values ">
+                <div class="autofilled-vals ">
+                    {{obj.date|date:"M d, Y "}}
+                </div>
+                <div class="autofilled-vals ">
+                    {{obj.job_number}}
+                </div>
+                <div class="autofilled-vals ">
                     {{obj.engineer}}
                 </div>
-                <div class="autofilled-vals">
+                <div class="autofilled-vals ">
                     {{obj.department}}
                 </div>
-                <div class="autofilled-vals">
-                    078945612
-                </div>
-                <div class="autofilled-vals">
-                    Nyamira, Keroka
-                </div>
+                
             </div>
         </div>
-        <div class="third-row">
-            <div class="start-titles">
-                <div class="coloured-header">
+        <div class="third-row ">
+            <div class="start-titles ">
+                <div class="coloured-header ">
                     Arrival Time
                 </div>
-                <div class="coloured-header">
+                <div class="coloured-header ">
                     Start Mileage
                 </div>
             </div>
-            <div class="start-values">
-                <div class="autofilled-vals">
-                    {{obj.arrival_time |date:"H:i"}}
+            <div class="start-values ">
+                <div class="autofilled-vals ">
+                    {{obj.arrival_time |date:"H:i "}}
                 </div>
-                <div class="autofilled-vals">
+                <div class="autofilled-vals ">
                     {{obj.start_mileage}}
                 </div>
 
             </div>
-            <div class="end-titles">
-                <div class="coloured-header">
+            <div class="end-titles ">
+                <div class="coloured-header ">
                     Departure Time
                 </div>
-                <div class="coloured-header">
+                <div class="coloured-header ">
                     End Mileage
                 </div>
             </div>
-            <div class="end-values">
-                <div class="autofilled-vals">
-                    {{obj.departure_time |date:"H:i"}}
+            <div class="end-values ">
+                <div class="autofilled-vals ">
+                    {{obj.departure_time |date:"H:i "}}
                 </div>
-                <div class="autofilled-vals">
+                <div class="autofilled-vals ">
                     {{obj.end_mileage}}
                 </div>
 
             </div>
-            <div class="difference-titles">
-                <div class="coloured-header">
+            <div class="difference-titles ">
+                <div class="coloured-header ">
                     Time Spent
                 </div>
-                <div class="coloured-header">
+                <div class="coloured-header ">
                     Total Distance
                 </div>
             </div>
-            <div class="difference-values">
-                <div class="autofilled-vals">
+            <div class="difference-values ">
+                <div class="autofilled-vals ">
                     {{obj.time_spent}}
                 </div>
-                <div class="autofilled-vals">
+                <div class="autofilled-vals ">
                     {{obj.distance_covered}}
                 </div>
 
             </div>
         </div>
-        <div class="forth-section">
-            <div class='reports-column'>
-                <div class='report-column'>
-                    <div class="coloured-header">
-                        Report
-                    </div>
-                    <div class="lorem-text" style="height: 80px;">
-                        {{obj.report}}
-                    </div>
-                </div>
-                <div class='report-column'>
-                    <div class="coloured-header">
-                        Recommendations
-                    </div>
-                    <div class="lorem-text">
-                        {{obj.recommendation}}
-                    </div>
-                </div>
-                <div class='report-column'>
-                    <div class="coloured-header">
-                        Action Work Required
-                    </div>
-                    <div class="lorem-text">
-                        {{obj.action_work_required}}
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-        <div class="signature-row ">
+        <div class="forth-section ">
             <div class='report-column'>
                 <div class="coloured-header ">
-                    Signatures
+                    Report
                 </div>
-                <div name="signature-columns " style="display: flex;justify-content: space-around; ">
-                    <div style="padding: 2px;flex-direction: column;display: flex;align-items: center; ">
-                        <img class="signature " src="data:image/png;base64,{{obj.engineer_signature}} ">
-                        <div style="font-weight: 500; white-space: nowrap; ">
-                            KSB Engineer
-                        </div>
-                        <div style="font-weight: bold; white-space: nowrap; ">
-                            {{obj.engineer}}
-                        </div>
-                    </div>
-                    <div style="padding: 2px;flex-direction: column;display: flex;align-items: center; ">
-                        <img class="signature " src="data:image/png;base64,{{obj.client_signature}} ">
-                        <div style="font-weight: 500; white-space: nowrap; ">
-                            Client Representative
-                        </div>
-                        <div style="font-weight: bold; white-space: nowrap; ">
-                            {{obj.client}}
-                        </div>
-                    </div>
+                <div class="lorem-text ">
+                    {{obj.report}}
                 </div>
             </div>
+            <div class='report-column'>
+                <div class="coloured-header ">
+                    Recommendations
+                </div>
+                <div class="lorem-text ">
+                    {{obj.recommendation}}
+                </div>
+            </div>
+            <div class='report-column'>
+                <div class="coloured-header ">
+                    Action Work Required
+                </div>
+                <div class="lorem-text ">
+                    {{obj.action_work_required}}
+                </div>
+            </div>
+                
+
 
         </div>
+        
     </div>
 </body>
 
 </html>
+<div class='report-column'>
+    <div class="coloured-header ">
+        Photos
+    </div>
+    <img style=" width: 400px; height: auto; padding-top: 10px ;" src="{{obj.work_sheet_images.url}}">         
+</div>
+<div class='report-column'>
+    <div class="coloured-header ">
+        Signatures
+    </div>
+    <div class="signature-row ">
+            <div class="signature-column">
+                <img class="signature " src="data:image/png;base64,{{obj.engineer_signature}} ">
+                <div style="font-weight: 500; white-space: nowrap; ">
+                    KSB Engineer
+                </div>
+                <div style="font-weight: bold; white-space: nowrap; ">
+                    {{obj.engineer}}
+                </div>
+                <div style="font-weight: bold; white-space: nowrap; ">
+                    0745124525
+                </div>
+            </div>
+            <div class="signature-column">
+                 <img class="signature " src="data:image/png;base64,{{obj.client_signature}} ">
+                <div style="font-weight: 500; white-space: nowrap; ">
+                    Client Representative
+                </div>
+                <div style="font-weight: bold; white-space: nowrap; ">
+                    {{obj.client}}
+                </div>
+                <div style="font-weight: bold; white-space: nowrap; ">
+                    0745124525
+                </div>
+            </div>
+    </div>
+</div>

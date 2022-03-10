@@ -48,6 +48,9 @@ class DailyWorkSheetCreateAPIView(generics.CreateAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         if serializer.is_valid():
+            # files_list = request.FILES.getlist('work_sheet_images')
+            # for item in files_list:
+            # f = DailyWorkSheet.objects.create(name=request.data['name'], work_sheet_images=item)
             serializer.save()
 
             headers = self.get_success_headers(serializer.data)
@@ -97,12 +100,13 @@ class DailyWorkSheetListAPIView(generics.ListAPIView):
     queryset = DailyWorkSheet.objects.all()
     serializer_class = DailyWorkSheetSerializer
 
+
 def generateImageMime(id: int):
     obj = DailyWorkSheet.objects.get(pk=id)
     print(obj)
     context = {"obj": obj}
     font_config = FontConfiguration()
-    htmlString = render_to_string(settings.BASE_DIR / "templates/index.html", context)
+    htmlString = render_to_string(settings.BASE_DIR / "templates/index2.html", context)
 
     html = HTML(string=htmlString)
 
@@ -129,6 +133,47 @@ def generateImageMime(id: int):
     return pdf_doc_mime
 
 
+class MyDetailView(DetailView):
+    # vanilla Django DetailView
+    template_name = "index2.html"
+    context_object_name = "obj"
+    model = DailyWorkSheet
 
 
+class CustomWeasyTemplateResponse(WeasyTemplateResponse):
+    # customized response class to change the default URL fetcher
+    def get_url_fetcher(self):
+        # disable host and certificate check
+        context = ssl.create_default_context()
+        context.check_hostname = False
+        context.verify_mode = ssl.CERT_NONE
+        return functools.partial(django_url_fetcher, ssl_context=context)
 
+
+class PrintView(WeasyTemplateResponseMixin, MyDetailView):
+    # output of MyDetailView rendered as PDF with hardcoded CSS
+    pdf_stylesheets = [
+        settings.BASE_DIR / "core/static/core/mystyles.css",
+    ]
+    # show pdf in-line (default: True, show download dialog)
+    pdf_attachment = True
+    # custom response class to configure url-fetcher
+    response_class = CustomWeasyTemplateResponse
+
+
+class DownloadView(WeasyTemplateResponseMixin, MyDetailView):
+    pdf_stylesheets = [
+        settings.BASE_DIR / "core/static/core/mystyles.css",
+    ]
+    # show pdf in-line (default: True, show download dialog)
+    pdf_attachment = True
+    # custom response class to configure url-fetcher
+    response_class = CustomWeasyTemplateResponse
+    # suggested filename (is required for attachment/download!)
+    pdf_filename = "foo.pdf"
+
+
+class DynamicNameView(WeasyTemplateResponseMixin, MyDetailView):
+    # dynamically generate filename
+    def get_pdf_filename(self):
+        return "foo-{at}.pdf".format(at=timezone.now().strftime("%Y%m%d-%H%M"))

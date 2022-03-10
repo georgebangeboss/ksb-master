@@ -10,4 +10,5 @@ urlpatterns = [
     path("update/<pk>/", views.DailyWorkSheetUpdateAPIView.as_view()),
     path("delete/<pk>/", views.DailyWorkSheetDeleteAPIView.as_view()),
     path("list/", views.DailyWorkSheetListAPIView.as_view()),
+    path("printpdf/<pk>", views.DownloadView.as_view()),
 ]
