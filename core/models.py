@@ -66,7 +66,7 @@ class DailyWorkSheet(models.Model):
 
     def get_worksheet_image(self):
         with open(self.work_sheet_images.path, "rb") as image_file:
-            encode_string = base64.b64decode(image_file.read())
+            encode_string = base64.b64encode(image_file.read())
         print(encode_string)
         return encode_string
 
