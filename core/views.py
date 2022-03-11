@@ -57,7 +57,7 @@ class DailyWorkSheetCreateAPIView(generics.CreateAPIView):
             image_list = []
             for item in files_list:
                 image = FieldPhoto.objects.create(work_sheet=sheet, field_image=item)
-                image_list.add(image)
+                image_list.append(image)
 
             pdf_mime = generatePDFMime(id=pk, images=image_list)
             file_name = f"work_sheet_{pk}.pdf"
