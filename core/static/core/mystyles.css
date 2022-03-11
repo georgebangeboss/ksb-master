@@ -236,12 +236,16 @@ font-size: 13px;
 
 .photos {
     flex-wrap: wrap;
+    justify-content: space-around;
     gap: 12px;
+    display: flex;
+    flex-direction: row;
 }
 
 .photo {
     height: 400px;
     object-fit: contain;
+    padding-right: 2px;
 }
 
 .signature {
@@ -276,4 +280,5 @@ body {
     grid-template-columns: 1fr,1fr,1fr;
     column-gap: 10px;
     row-gap: 10px;
+    padding-top: 5px;
 }

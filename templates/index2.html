@@ -210,7 +210,7 @@
         Photos
     </div>
     {% if images %}
-        <div class="images-grid">
+        <div class="photos">
             {%for image in images%}
                 <img class="photo" src="{{image.get_worksheet_image}}">  
             {%endfor%}
