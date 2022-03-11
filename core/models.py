@@ -1,5 +1,6 @@
 import base64
 from distutils.command.upload import upload
+from fileinput import filename
 
 from django.conf import settings
 from django.db import models
@@ -65,11 +66,30 @@ class DailyWorkSheet(models.Model):
         return logo_base64_string
 
     def get_worksheet_image(self):
-        with open(self.work_sheet_images.path, "rb") as image_file:
-            encode_string = base64.b64encode(image_file.read())
-        
-        return encode_string
+        filename = self.work_sheet_images.path
+        ext = filename.split(".")[-1]
+        prefix = f"data:image/{ext};base64,"
+        with open(filename, "rb") as image_file:
+            encode_string_bytes = base64.b64encode(image_file.read())
+            encode_string = encode_string_bytes.decode("utf8")
+        return prefix + encode_string
 
     class Meta:
         verbose_name = "Daily Work Sheet"
         verbose_name_plural = "Daily Work Sheets"
+
+
+class FieldPhoto(models.Model):
+    field_image = models.FileField(null=True, blank=True, upload_to="field-photos/")
+    work_sheet_id = models.ForeignKey(
+        DailyWorkSheet, on_delete=models.DO_NOTHING, related_name="field_photos"
+    )
+
+    def get_worksheet_image(self):
+        filename = self.work_sheet_images.path
+        ext = filename.split(".")[-1]
+        prefix = f"data:image/{ext};base64,"
+        with open(filename, "rb") as image_file:
+            encode_string_bytes = base64.b64encode(image_file.read())
+            encode_string = encode_string_bytes.decode("utf8")
+        return prefix + encode_string

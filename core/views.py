@@ -20,7 +20,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
 from email import encoders
 
-from .models import DailyWorkSheet
+from .models import DailyWorkSheet, FieldPhoto
 from .serializers import DailyWorkSheetSerializer
 from django.utils.text import slugify
 from django.contrib.auth.decorators import login_required
@@ -48,14 +48,18 @@ class DailyWorkSheetCreateAPIView(generics.CreateAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         if serializer.is_valid():
-            # files_list = request.FILES.getlist('work_sheet_images')
-            # for item in files_list:
-            # f = DailyWorkSheet.objects.create(name=request.data['name'], work_sheet_images=item)
+            files_list = request.FILES.getlist("work_sheet_images")
             serializer.save()
 
             headers = self.get_success_headers(serializer.data)
             pk = serializer.data["id"]
-            pdf_mime = generateImageMime(id=pk)
+
+            image_list = []
+            for item in files_list:
+                image = FieldPhoto.objects.create(work_sheet_id=pk, field_image=item)
+                image_list.add(image)
+
+            pdf_mime = generatePDFMime(id=pk, images=image_list)
             file_name = f"work_sheet_{pk}.pdf"
 
             email = EmailMessage(
@@ -101,10 +105,13 @@ class DailyWorkSheetListAPIView(generics.ListAPIView):
     serializer_class = DailyWorkSheetSerializer
 
 
-def generateImageMime(id: int):
+def generatePDFMime(id: int, images):
     obj = DailyWorkSheet.objects.get(pk=id)
     print(obj)
-    context = {"obj": obj}
+    context = {
+        "obj": obj,
+        "images": images,
+    }
     font_config = FontConfiguration()
     htmlString = render_to_string(settings.BASE_DIR / "templates/index2.html", context)
 
@@ -114,7 +121,6 @@ def generateImageMime(id: int):
         settings.BASE_DIR / "core/static/core/mystyles.css", font_config=font_config
     )
     result = html.write_pdf(
-        # settings.BASE_DIR / "files/pdf1.pdf",
         stylesheets=[css],
         optimize_size=("fonts", "images"),
         font_config=font_config,
