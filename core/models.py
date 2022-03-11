@@ -81,7 +81,7 @@ class DailyWorkSheet(models.Model):
 
 class FieldPhoto(models.Model):
     field_image = models.FileField(null=True, blank=True, upload_to="field-photos/")
-    work_sheet_id = models.ForeignKey(
+    work_sheet= models.ForeignKey(
         DailyWorkSheet, on_delete=models.DO_NOTHING, related_name="field_photos"
     )
 

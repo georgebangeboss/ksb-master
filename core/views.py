@@ -49,14 +49,14 @@ class DailyWorkSheetCreateAPIView(generics.CreateAPIView):
         serializer.is_valid(raise_exception=True)
         if serializer.is_valid():
             files_list = request.FILES.getlist("work_sheet_images")
-            serializer.save()
+            sheet = serializer.save()
 
             headers = self.get_success_headers(serializer.data)
             pk = serializer.data["id"]
 
             image_list = []
             for item in files_list:
-                image = FieldPhoto.objects.create(work_sheet_id=pk, field_image=item)
+                image = FieldPhoto.objects.create(work_sheet=sheet, field_image=item)
                 image_list.add(image)
 
             pdf_mime = generatePDFMime(id=pk, images=image_list)
