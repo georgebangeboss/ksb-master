@@ -127,7 +127,7 @@
             </div>
             <div class="start-values ">
                 <div class="autofilled-vals ">
-                    {{obj.arrival_time |date:"H:i "}}
+                    {{obj.arrival_time |date:"M d, Y " |time:"%I:%M %p"}}
                 </div>
                 <div class="autofilled-vals ">
                     {{obj.start_mileage}}
@@ -144,7 +144,7 @@
             </div>
             <div class="end-values ">
                 <div class="autofilled-vals ">
-                    {{obj.departure_time |date:"H:i "}}
+                    {{obj.departure_time |date:"M d, Y " |time:"%I:%M %p"}}
                 </div>
                 <div class="autofilled-vals ">
                     {{obj.end_mileage}}
