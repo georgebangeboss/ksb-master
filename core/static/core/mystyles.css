@@ -15,7 +15,7 @@
 }
 
 .first-row {
-    background-color: #d1dcef;
+    /* background-color: #d1dcef; */
     display: flex;
     flex-direction: row;
     padding: 9px 26px 10px 26px;
@@ -66,11 +66,11 @@
     font-family: Roboto, Arial;
     color: #4B5770;
     font-weight: 900;
-    font-size: 25px;
+    font-size: 30px;
 }
 .supreme-span-large{
     font-family: Roboto, Arial;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 900;
 }
 
@@ -240,7 +240,7 @@ font-size: 13px;
 }
 
 .photo {
-    height: 80px;
+    height: 400px;
     object-fit: contain;
 }
 
