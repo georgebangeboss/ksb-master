@@ -235,13 +235,12 @@ font-size: 13px;
 }
 
 .photos {
-    padding: 8px;
     flex-wrap: wrap;
     gap: 12px;
 }
 
 .photo {
-    width: 100px;
+    height: 80px;
     object-fit: contain;
 }
 
@@ -275,4 +274,6 @@ body {
 .images-grid{
     display: grid;
     grid-template-columns: 1fr,1fr,1fr;
+    column-gap: 10px;
+    row-gap: 10px;
 }
