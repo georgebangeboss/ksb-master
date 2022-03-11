@@ -44,7 +44,10 @@ class DailyWorkSheet(models.Model):
         null=False,
         blank=False,
     )
-    work_sheet_images = models.FileField(null=True, blank=True, upload_to="worksheets/")
+    work_sheet_images = models.FileField(
+        null=True,
+        blank=True,
+    )
 
     @register.filter(name="binary_to_image")
     def decode_signature(self, signature_str: str):
