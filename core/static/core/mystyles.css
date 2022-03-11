@@ -21,7 +21,7 @@
     padding: 9px 26px 10px 26px;
     justify-content: space-between;
     margin-bottom: 9px;
-    height: 100%;
+    
     flex-grow:0;
 }
 
@@ -148,7 +148,6 @@ span {
 
 .third-row {
     display: flex;
-    height: 100%;
     flex-direction: row;
     padding: 9px 1px 10px 1px;
     justify-content: space-between;
@@ -157,7 +156,6 @@ span {
 
 .second-row {
     display: flex;
-    height: 100%;
     flex-direction: row;
     padding: 9px 1px 10px 1px;
     justify-content: space-between;
@@ -234,7 +232,6 @@ font-size: 13px;
 .report-column {
     display: flex;
     flex-direction: column;
-    
 }
 
 .photos {
@@ -243,13 +240,12 @@ font-size: 13px;
     gap: 12px;
     display: flex;
     flex-direction: row;
-    height: 100%;
 }
 
 .photo {
-    height: 400px;
+    height: 350px;
     object-fit: contain;
-    padding-right: 2px;
+    padding-right: 10px;
 }
 
 .signature {
@@ -269,7 +265,7 @@ body {
 
 
 .lorem-text {
-    height: 100px;
+    height: 95px;
     padding: 2.5px 5px 2.5px 5px;
 }
 .signature-column{
