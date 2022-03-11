@@ -241,7 +241,7 @@ font-size: 13px;
 }
 
 .photo {
-    width: 120px;
+    width: 100px;
     object-fit: contain;
 }
 
@@ -271,4 +271,8 @@ body {
     display: flex;
     align-items: center; 
     justify-content: space-between;
+}
+.images-grid{
+    display: grid;
+    grid-template-columns: 1fr,1fr,1fr;
 }
